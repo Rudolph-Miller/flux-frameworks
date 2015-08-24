@@ -4,8 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "watchify -o js/bundle.js -d lib/app.jsx -v",
+    "build": "browserify -o js/bundle.js -d lib/app.jsx"
   },
   "author": "Rudolph Miller",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babelify": "^6.2.0",
+    "browserify": "^11.0.1",
+    "flux": "^2.1.1",
+    "keymirror": "^0.1.1",
+    "object-assign": "^4.0.1",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "watchify": "^3.3.1"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "reactify"
+    ]
+  }
 }
